@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link href="static/css/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+        integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+        crossorigin="anonymous" />
+    <link href="static/css/bootstrap.min.css" rel="stylesheet">
+    <link href="static/css/jquery.dataTables.min.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <body class="background-dark text-dark-orange">
+        <header>
+            <div class="toggle-btn">
+                <a href="#" class="top-title">
+                    <i class="fas fa-bars" style="color: grey;"></i>
+                </a>
+
+            </div>
+            <span class="logo">
+                <img src="static/img/logo.jpeg" width="70" alt="SHAHI">
+            </span>
+            <span class="right-header">
+                <a href="#">
+                    <i class="fas fa-cog"></i>
+                </a>
+                <div class="dropdown">
+                    <span>
+                        <img height="32" width="32" src="static/img/profile.png" alt="logo">
+                        <i class="fas fa-sort"></i>
+                    </span>
+                    <div class="dropdown-content">
+                        <p>My profile</p>
+                        <p>Logout</p>
+                    </div>
+                </div>
+
+            </span>
+
+        </header>
+        <div class="left-nav-menu-wrap clearfix oc-main-nav-wrap d-flex" id="sidebar">
+            <ul class="main-nav-menu list-unstyled oc-main-nav-list-wrap">
+                <li class="sidebar-menu active">
+                    <a data-toggle="tab" href="#home" class="oc-has-submenu" title="Home">
+                        <i class="fas fa-home"></i>
+                        <span class="text">Home</span>
+                    </a>
+                </li>
+                <li class="sidebar-menu">
+                    <a href="#products" class="" title="Products">
+                        <i class="fas fa-newspaper"></i>
+                        <span class="text">Products</span>
+                    </a>
+                </li>
+                <li class="sidebar-menu">
+                    <a href="#notes" class="" title="Notes">
+                        <i class="far fa-file-alt"></i>
+                        <span class="text">Notes</span>
+                    </a>
+                </li>
+                <li class="sidebar-menu">
+                    <a data-toggle="tab" href="#menu-sub-inventory" class="oc-has-submenu" title="Notifications">
+                        <i class="fas fa-bell"></i>
+                        <span class="text">Notifications</span>
+                    </a>
+                </li>
+                <li class="sidebar-menu">
+                    <a data-toggle="tab" href="#menu-sub-reports" class="oc-has-submenu" title="Help">
+                        <i class="far fa-question-circle"></i>
+                        <span class="text">Help</span>
+                    </a>
+                </li>
+            </ul>
+
+            <div class="main">
+                <section>
+                    <div class="cards-div d-flex">
+                        <div class="card" style="width: 18rem;">
+                            <div class="card-body">
+                                <h1 class="card-title"><i class="fas fa-file-image"></i></h1>
+                                <a href="#" class="btn btn-light">Case upload</a>
+                            </div>
+                        </div>
+                        <div class="card" style="width: 18rem;">
+                            <div class="card-body">
+                                <h1 class="card-title"><i class="far fa-file-alt"></i></h1>
+                                <a href="#" class="btn btn-light">Generate report</a>
+                            </div>
+                        </div>
+                        <div class="card" style="width: 18rem;">
+                            <div class="card-body">
+                                <h1 class="card-title"><i class="fas fa-envelope-open"></i></h1>
+                                <a href="#" class="btn btn-light">Broadcast message</a>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="tab-section">
+                    <nav>
+                        <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                            <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab"
+                                data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home"
+                                aria-selected="true">NEW/UNREAD CASES</button>
+                            <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab"
+                                data-bs-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile"
+                                aria-selected="false">OUTSTANDING AND CLOSED CASES</button>
+                        </div>
+                    </nav>
+                    <div class="tab-content" id="nav-tabContent">
+                        <div class="tab-pane fade show active" id="nav-home" role="tabpanel"
+                            aria-labelledby="nav-home-tab">
+                            <div class="table-responsive" style="height: 42vh;">
+                                <table class="table" id="new-cases-table">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">CASE NO.</th>
+                                            <th scope="col">BRANCH</th>
+                                            <th scope="col">REPORTING METHOD</th>
+                                            <th scope="col">DATE</th>
+                                            <th scope="col">TIME</th>
+                                            <th scope="col">CATEGORY</th>
+                                            <th scope="col">SUB CATEGORY</th>
+                                            <th scope="col">PRIORITY</th>
+                                            <th scope="col">NATURE</th>
+                                            <th scope="col">CASE MANAGER</th>
+                                            <th scope="col">CASE REPORTER</th>
+                                            <th scope="col">CASE STATUS</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>1900013</td>
+                                            <td>Branch 3</td>
+                                            <td>In person</td>
+                                            <td>12-02-2021</td>
+                                            <td>12:35:02</td>
+                                            <td>Employment<i class="fas fa-sort-down"></i></td>
+                                            <td>Complaints<i class="fas fa-sort-down"></i></td>
+                                            <td><span class="btn btn-small btn-warning">Low<i
+                                                        class="fas fa-sort-down"></i></span></td>
+                                            <td>Health<i class="fas fa-sort-down"></i></td>
+                                            <td>Daryl<i class="fas fa-sort-down"></i></td>
+                                            <td>Tanner</td>
+                                            <td>Not prepared</td>
+                                        </tr>
+                                        <tr>
+                                            <td>1900014</td>
+                                            <td>Branch 2</td>
+                                            <td>Call</td>
+                                            <td>15-02-2021</td>
+                                            <td>12:35:02</td>
+                                            <td>Grievance<i class="fas fa-sort-down"></i></td>
+                                            <td>Query<i class="fas fa-sort-down"></i></td>
+                                            <td><span class="btn btn-small orange">Medium<i
+                                                        class="fas fa-sort-down"></i></span></td>
+                                            <td>Transport<i class="fas fa-sort-down"></i></td>
+                                            <td>Titus<i class="fas fa-sort-down"></i></td>
+                                            <td>Clinton</td>
+                                            <td>Progress</td>
+                                        </tr>
+                                        <tr>
+                                            <td>1900015</td>
+                                            <td>Branch 3</td>
+                                            <td>In person</td>
+                                            <td>19-02-2021</td>
+                                            <td>12:35:02</td>
+                                            <td>Security<i class="fas fa-sort-down"></i></td>
+                                            <td>Complaints<i class="fas fa-sort-down"></i></td>
+                                            <td><span class="btn btn-small btn-danger">High<i
+                                                        class="fas fa-sort-down"></i></span></td>
+                                            <td>Health<i class="fas fa-sort-down"></i></td>
+                                            <td>Alfanzo<i class="fas fa-sort-down"></i></td>
+                                            <td>Tanner</td>
+                                            <td>Not prepared</td>
+                                        </tr>
+                                        <tr>
+                                            <td>1900016</td>
+                                            <td>Branch 3</td>
+                                            <td>In person</td>
+                                            <td>12-02-2021</td>
+                                            <td>12:35:02</td>
+                                            <td>Employment<i class="fas fa-sort-down"></i></td>
+                                            <td>Complaints<i class="fas fa-sort-down"></i></td>
+                                            <td><span class="btn btn-small btn-warning">Low<i
+                                                        class="fas fa-sort-down"></i></span></td>
+                                            <td>Health<i class="fas fa-sort-down"></i></td>
+                                            <td>Daryl<i class="fas fa-sort-down"></i></td>
+                                            <td>Tanner</td>
+                                            <td>Not prepared</td>
+                                        </tr>
+                                        <tr>
+                                            <td>1900017</td>
+                                            <td>Branch 2</td>
+                                            <td>Call</td>
+                                            <td>15-02-2021</td>
+                                            <td>12:35:02</td>
+                                            <td>Grievance<i class="fas fa-sort-down"></i></td>
+                                            <td>Query<i class="fas fa-sort-down"></i></td>
+                                            <td><span class="btn btn-small orange">Medium<i
+                                                        class="fas fa-sort-down"></i></span></td>
+                                            <td>Transport<i class="fas fa-sort-down"></i></td>
+                                            <td>Titus<i class="fas fa-sort-down"></i></td>
+                                            <td>Clinton</td>
+                                            <td>Progress</td>
+                                        </tr>
+                                        <tr>
+                                            <td>1900018</td>
+                                            <td>Branch 3</td>
+                                            <td>In person</td>
+                                            <td>19-02-2021</td>
+                                            <td>12:35:02</td>
+                                            <td>Security<i class="fas fa-sort-down"></i></td>
+                                            <td>Complaints<i class="fas fa-sort-down"></i></td>
+                                            <td><span class="btn btn-small btn-danger">High<i
+                                                        class="fas fa-sort-down"></i></span></td>
+                                            <td>Health<i class="fas fa-sort-down"></i></td>
+                                            <td>Alfanzo<i class="fas fa-sort-down"></i></td>
+                                            <td>Tanner</td>
+                                            <td>Not prepared</td>
+                                        </tr>
+                                        <tr>
+                                            <td>1900019</td>
+                                            <td>Branch 3</td>
+                                            <td>In person</td>
+                                            <td>12-02-2021</td>
+                                            <td>12:35:02</td>
+                                            <td>Employment<i class="fas fa-sort-down"></i></td>
+                                            <td>Complaints<i class="fas fa-sort-down"></i></td>
+                                            <td><span class="btn btn-small btn-warning">Low<i
+                                                        class="fas fa-sort-down"></i></span></td>
+                                            <td>Health<i class="fas fa-sort-down"></i></td>
+                                            <td>Daryl<i class="fas fa-sort-down"></i></td>
+                                            <td>Tanner</td>
+                                            <td>Not prepared</td>
+                                        </tr>
+                                        <tr>
+                                            <td>1900020</td>
+                                            <td>Branch 2</td>
+                                            <td>Call</td>
+                                            <td>15-02-2021</td>
+                                            <td>12:35:02</td>
+                                            <td>Grievance<i class="fas fa-sort-down"></i></td>
+                                            <td>Query<i class="fas fa-sort-down"></i></td>
+                                            <td><span class="btn btn-small orange">Medium<i
+                                                        class="fas fa-sort-down"></i></span></td>
+                                            <td>Transport<i class="fas fa-sort-down"></i></td>
+                                            <td>Titus<i class="fas fa-sort-down"></i></td>
+                                            <td>Clinton</td>
+                                            <td>Progress</td>
+                                        </tr>
+                                        <tr>
+                                            <td>1900021</td>
+                                            <td>Branch 3</td>
+                                            <td>In person</td>
+                                            <td>19-02-2021</td>
+                                            <td>12:35:02</td>
+                                            <td>Security<i class="fas fa-sort-down"></i></td>
+                                            <td>Complaints<i class="fas fa-sort-down"></i></td>
+                                            <td><span class="btn btn-small btn-danger">High<i
+                                                        class="fas fa-sort-down"></i></span></td>
+                                            <td>Health<i class="fas fa-sort-down"></i></td>
+                                            <td>Alfanzo<i class="fas fa-sort-down"></i></td>
+                                            <td>Tanner</td>
+                                            <td>Not prepared</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+                            <p class="text-center">No data</p>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </body>
+
+
+    <script src="static/js/jquery.min.js"></script>
+    <script src="static/js/jquery.dataTables.min.js"></script>
+    <script src="static/js/bootstrap.min.js"></script>
+    <script src="static/js/bootstrap.bundle.min.js"></script>
+    <script src="static/js/popper.min.js"></script>
+    <script src="static/js/custom.js"></script>
+
+</body>
+
+</html>
